@@ -19,7 +19,7 @@ class RuntimeErrorException extends \RuntimeException
      * @param string $message
      * @param array  $messageParameters
      */
-    public function __construct($message, array $messageParameters = [])
+    public function __construct(string $message, array $messageParameters = [])
     {
         parent::__construct($message);
 
@@ -29,7 +29,7 @@ class RuntimeErrorException extends \RuntimeException
     /**
      * @return array
      */
-    public function getMessageParameters()
+    public function getMessageParameters(): array
     {
         return $this->messageParameters;
     }

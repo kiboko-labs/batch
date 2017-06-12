@@ -23,7 +23,7 @@ class JobParametersFactory
      * @param DefaultValuesProviderRegistry $registry
      * @param string                        $jobParametersClass
      */
-    public function __construct(DefaultValuesProviderRegistry $registry, $jobParametersClass)
+    public function __construct(DefaultValuesProviderRegistry $registry, string $jobParametersClass)
     {
         $this->defaultRegistry = $registry;
         $this->jobParametersClass = $jobParametersClass;
@@ -35,7 +35,7 @@ class JobParametersFactory
      *
      * @return JobParameters
      */
-    public function create(JobInterface $job, array $parameters = [])
+    public function create(JobInterface $job, array $parameters = []): JobParameters
     {
         $provider = $this->defaultRegistry->get($job);
         $parameters = array_merge($provider->getDefaultValues(), $parameters);

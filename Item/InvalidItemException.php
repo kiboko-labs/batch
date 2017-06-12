@@ -44,7 +44,7 @@ class InvalidItemException extends \Exception
      *
      * @return array
      */
-    public function getMessageParameters()
+    public function getMessageParameters(): array
     {
         return $this->messageParameters;
     }
@@ -54,7 +54,7 @@ class InvalidItemException extends \Exception
      *
      * @return InvalidItemInterface
      */
-    public function getItem()
+    public function getItem(): InvalidItemInterface
     {
         return $this->item;
     }

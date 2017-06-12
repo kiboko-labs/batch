@@ -19,7 +19,7 @@ class ConstraintCollectionProviderRegistry
     /**
      * @param ConstraintCollectionProviderInterface $provider
      */
-    public function register(ConstraintCollectionProviderInterface $provider)
+    public function register(ConstraintCollectionProviderInterface $provider): void
     {
         $this->providers[] = $provider;
     }
@@ -31,7 +31,7 @@ class ConstraintCollectionProviderRegistry
      *
      * @return ConstraintCollectionProviderInterface
      */
-    public function get(JobInterface $job)
+    public function get(JobInterface $job): ConstraintCollectionProviderInterface
     {
         foreach ($this->providers as $provider) {
             if ($provider->supports($job)) {

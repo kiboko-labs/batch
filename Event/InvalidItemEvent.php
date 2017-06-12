@@ -45,7 +45,7 @@ class InvalidItemEvent extends Event implements EventInterface
      *
      * @return string
      */
-    public function getClass()
+    public function getClass(): string
     {
         return $this->class;
     }
@@ -55,7 +55,7 @@ class InvalidItemEvent extends Event implements EventInterface
      *
      * @return string
      */
-    public function getReason()
+    public function getReason(): string
     {
         return $this->reason;
     }
@@ -65,7 +65,7 @@ class InvalidItemEvent extends Event implements EventInterface
      *
      * @return array
      */
-    public function getReasonParameters()
+    public function getReasonParameters(): array
     {
         return $this->reasonParameters;
     }
@@ -75,7 +75,7 @@ class InvalidItemEvent extends Event implements EventInterface
      *
      * @return InvalidItemInterface
      */
-    public function getItem()
+    public function getItem(): InvalidItemInterface
     {
         return $this->item;
     }

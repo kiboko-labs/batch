@@ -4,7 +4,6 @@ namespace Akeneo\Component\Batch\Job;
 
 use Akeneo\Component\Batch\Event\EventInterface;
 use Akeneo\Component\Batch\Event\JobExecutionEvent;
-use Akeneo\Component\Batch\Item\ExecutionContext;
 use Akeneo\Component\Batch\Model\JobExecution;
 use Akeneo\Component\Batch\Model\StepExecution;
 use Akeneo\Component\Batch\Step\StepInterface;
@@ -63,7 +62,7 @@ class Job implements JobInterface
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -145,7 +144,7 @@ class Job implements JobInterface
      * The working directory is created in the temporary filesystem. Its pathname is placed in the JobExecutionContext
      * via the key {@link \Akeneo\Component\Batch\Job\JobInterface::WORKING_DIRECTORY_PARAMETER}
      */
-    final public function execute(JobExecution $jobExecution)
+    final public function execute(JobExecution $jobExecution): void
     {
         try {
             $workingDirectory = $this->createWorkingDirectory();
@@ -328,10 +327,8 @@ class Job implements JobInterface
      *
      * @param JobExecution $jobExecution Execution of the job
      * @param string       $status       Status of the execution
-     *
-     * @return an {@link ExitStatus}
      */
-    private function updateStatus(JobExecution $jobExecution, $status)
+    private function updateStatus(JobExecution $jobExecution, string $status): void
     {
         $jobExecution->setStatus(new BatchStatus($status));
     }

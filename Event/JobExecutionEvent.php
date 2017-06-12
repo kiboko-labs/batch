@@ -28,7 +28,7 @@ class JobExecutionEvent extends Event implements EventInterface
     /**
      * @return JobExecution
      */
-    public function getJobExecution()
+    public function getJobExecution(): JobExecution
     {
         return $this->jobExecution;
     }

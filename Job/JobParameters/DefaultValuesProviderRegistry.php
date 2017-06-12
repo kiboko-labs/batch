@@ -19,7 +19,7 @@ class DefaultValuesProviderRegistry
     /**
      * @param DefaultValuesProviderInterface $provider
      */
-    public function register(DefaultValuesProviderInterface $provider)
+    public function register(DefaultValuesProviderInterface $provider): void
     {
         $this->providers[] = $provider;
     }
@@ -31,7 +31,7 @@ class DefaultValuesProviderRegistry
      *
      * @return DefaultValuesProviderInterface
      */
-    public function get(JobInterface $job)
+    public function get(JobInterface $job): DefaultValuesProviderInterface
     {
         foreach ($this->providers as $provider) {
             if ($provider->supports($job)) {

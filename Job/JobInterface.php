@@ -21,7 +21,7 @@ interface JobInterface
     /**
      * @return string the name of this job
      */
-    public function getName();
+    public function getName(): string;
 
     /**
      * Run the {@link JobExecution} and update the meta information like status
@@ -31,5 +31,5 @@ interface JobInterface
      *
      * @param JobExecution $execution a {@link JobExecution}
      */
-    public function execute(JobExecution $execution);
+    public function execute(JobExecution $execution): void;
 }

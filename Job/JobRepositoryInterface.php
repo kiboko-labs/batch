@@ -26,7 +26,7 @@ interface JobRepositoryInterface
      *
      * @return JobExecution
      */
-    public function createJobExecution(JobInstance $job, JobParameters $jobParameters);
+    public function createJobExecution(JobInstance $job, JobParameters $jobParameters): JobExecution;
 
     /**
      * Update a JobExecution
@@ -35,7 +35,7 @@ interface JobRepositoryInterface
      *
      * @return JobExecution
      */
-    public function updateJobExecution(JobExecution $jobExecution);
+    public function updateJobExecution(JobExecution $jobExecution): JobExecution;
 
     /**
      * Update a StepExecution
@@ -44,7 +44,7 @@ interface JobRepositoryInterface
      *
      * @return StepExecution
      */
-    public function updateStepExecution(StepExecution $stepExecution);
+    public function updateStepExecution(StepExecution $stepExecution): StepExecution;
 
     /**
      * Get the last job execution
@@ -54,7 +54,7 @@ interface JobRepositoryInterface
      *
      * @return JobExecution|null
      */
-    public function getLastJobExecution(JobInstance $jobInstance, $status);
+    public function getLastJobExecution(JobInstance $jobInstance, int $status): ?JobExecution;
 
     /**
      * Get purgeables jobs executions
@@ -63,12 +63,12 @@ interface JobRepositoryInterface
      *
      * @return array
      */
-    public function findPurgeables($days);
+    public function findPurgeables($days): array;
 
     /**
      * Remove jobs executions
      *
-     * @param array $jobsExecutions
+     * @param JobExecution[] $jobsExecutions
      */
     public function remove(array $jobsExecutions);
 }

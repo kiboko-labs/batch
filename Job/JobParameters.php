@@ -35,7 +35,7 @@ class JobParameters implements \IteratorAggregate, \Countable
      *
      * @return bool
      */
-    public function has($key)
+    public function has($key): bool
     {
         return array_key_exists($key, $this->parameters);
     }
@@ -63,7 +63,7 @@ class JobParameters implements \IteratorAggregate, \Countable
      *
      * @return array
      */
-    public function all()
+    public function all(): array
     {
         return $this->parameters;
     }
@@ -71,7 +71,7 @@ class JobParameters implements \IteratorAggregate, \Countable
     /**
      * {@inheritdoc}
      */
-    public function getIterator()
+    public function getIterator(): \Iterator
     {
         return new \ArrayIterator($this->parameters);
     }
@@ -79,7 +79,7 @@ class JobParameters implements \IteratorAggregate, \Countable
     /**
      * {@inheritdoc}
      */
-    public function count()
+    public function count(): int
     {
         return count($this->parameters);
     }

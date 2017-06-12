@@ -30,7 +30,7 @@ class JobRegistry
      *
      * @throws DuplicatedJobException
      */
-    public function register(JobInterface $job, $jobType, $connector)
+    public function register(JobInterface $job, $jobType, $connector): void
     {
         if (isset($this->jobs[$job->getName()])) {
             throw new DuplicatedJobException(
@@ -50,7 +50,7 @@ class JobRegistry
      *
      * @return JobInterface
      */
-    public function get($jobName)
+    public function get($jobName): JobInterface
     {
         if (!isset($this->jobs[$jobName])) {
             throw new UndefinedJobException(
@@ -64,7 +64,7 @@ class JobRegistry
     /**
      * @return JobInterface[]
      */
-    public function all()
+    public function all(): array
     {
         return $this->jobs;
     }
@@ -74,9 +74,9 @@ class JobRegistry
      *
      * @throws UndefinedJobException
      *
-     * @return JobInterface
+     * @return JobInterface[]
      */
-    public function allByType($jobType)
+    public function allByType($jobType): array
     {
         if (!isset($this->jobsByType[$jobType])) {
             throw new UndefinedJobException(
@@ -108,7 +108,7 @@ class JobRegistry
     /**
      * @return string[]
      */
-    public function getConnectors()
+    public function getConnectors(): array
     {
         return array_keys($this->jobsByConnector);
     }

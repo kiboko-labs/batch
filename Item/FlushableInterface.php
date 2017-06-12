@@ -19,5 +19,5 @@ interface FlushableInterface
     /**
      * Custom logic on step completion.
      */
-    public function flush();
+    public function flush(): void;
 }

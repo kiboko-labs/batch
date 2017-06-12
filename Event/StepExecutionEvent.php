@@ -28,7 +28,7 @@ class StepExecutionEvent extends Event implements EventInterface
     /**
      * @return StepExecution
      */
-    public function getStepExecution()
+    public function getStepExecution(): StepExecution
     {
         return $this->stepExecution;
     }

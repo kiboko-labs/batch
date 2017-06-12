@@ -23,7 +23,7 @@ class ExecutionContext
      *
      * @return boolean
      */
-    public function isDirty()
+    public function isDirty(): bool
     {
         return $this->dirty;
     }
@@ -31,9 +31,9 @@ class ExecutionContext
     /**
      * Clear the dirty flag
      *
-     * @return $this
+     * @return ExecutionContext
      */
-    public function clearDirtyFlag()
+    public function clearDirtyFlag(): ExecutionContext
     {
         $this->dirty = false;
 
@@ -64,9 +64,9 @@ class ExecutionContext
      * @param string $key
      * @param mixed  $value
      *
-     * @return $this
+     * @return ExecutionContext
      */
-    public function put($key, $value)
+    public function put($key, $value): ExecutionContext
     {
         $this->context[$key] = $value;
 
@@ -81,9 +81,9 @@ class ExecutionContext
      *
      * @param string $key
      *
-     * @return $this
+     * @return ExecutionContext
      */
-    public function remove($key)
+    public function remove($key): ExecutionContext
     {
         if (isset($this->context[$key])) {
             unset($this->context[$key]);
@@ -97,7 +97,7 @@ class ExecutionContext
      *
      * @return array $keys
      */
-    public function getKeys()
+    public function getKeys(): array
     {
         return array_keys($this->context);
     }

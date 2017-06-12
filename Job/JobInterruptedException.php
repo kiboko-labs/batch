@@ -15,6 +15,9 @@ namespace Akeneo\Component\Batch\Job;
  */
 class JobInterruptedException extends \Exception
 {
+    /**
+     * @var BatchStatus
+     */
     private $status;
 
     /**
@@ -24,7 +27,7 @@ class JobInterruptedException extends \Exception
      * @param \Exception  $previous Exception causing this one
      * @param BatchStatus $status   Status of the batch when the execption occured
      */
-    public function __construct($message = "", $code = 0, \Exception $previous = null, BatchStatus $status = null)
+    public function __construct(string $message = "", int $code = 0, \Exception $previous = null, BatchStatus $status = null)
     {
         parent::__construct($message, $code, $previous);
 
@@ -40,7 +43,7 @@ class JobInterruptedException extends \Exception
      *
      * @return BatchStatus the status of the interruption (default STOPPED)
      */
-    public function getStatus()
+    public function getStatus(): BatchStatus
     {
         return $this->status;
     }
